@@ -4,4 +4,5 @@ import serial
 with serial.Serial("/dev/ttyACM0") as ser:
     while True:
         line = ser.readline()
-        print(line)
+        sentence = pynmea2.parse(line)
+        print(sentence)
