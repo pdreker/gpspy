@@ -26,8 +26,22 @@ with serial.Serial("/dev/ttyACM0") as ser:
                 if sat
             ]
 
+            if sentence.mode == "A":
+                MODE = "Auto"
+            elif sentence.mode == "M":
+                MODE = "Manual"
+            else:
+                MODE = "Unknown"
+
+            if sentence.mode_fix_type == 1:
+                FIX_TYPE = "None"
+            elif sentence.mode_fix_type == 2:
+                FIX_TYPE = "2D"
+            elif sentence.mode_fix_type == 3:
+                FIX_TYPE = "3D"
+
             print(
-                f"Satellite stats: Mode: {sentence.mode},  Fix Type: {sentence.mode_fix_type} "
+                f"Satellite stats: Mode: {MODE},  Fix Type: {FIX_TYPE} "
                 f"Satellites: {sat_list} - PDOP: {sentence.pdop}, HDOP: {sentence.hdop}, "
                 f"VDOP: {sentence.vdop}"
             )
