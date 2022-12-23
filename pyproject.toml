@@ -6,7 +6,7 @@ authors = ["Patrick Dreker <patrick@dreker.de>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "^3.9"
 pyserial = "^3.5"
 pynmea2 = "^1.18.0"
 
