@@ -33,12 +33,14 @@ with serial.Serial("/dev/ttyACM0") as ser:
             else:
                 MODE = "Unknown"
 
-            if sentence.mode_fix_type == 1:
+            if sentence.mode_fix_type == "1":
                 FIX_TYPE = "None"
-            elif sentence.mode_fix_type == 2:
+            elif sentence.mode_fix_type == "2":
                 FIX_TYPE = "2D"
-            elif sentence.mode_fix_type == 3:
+            elif sentence.mode_fix_type == "3":
                 FIX_TYPE = "3D"
+            else:
+                FIX_TYPE = "Unknown"
 
             print(
                 f"Satellite stats: Mode: {MODE},  Fix Type: {FIX_TYPE} "
